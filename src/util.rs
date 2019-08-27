@@ -208,7 +208,7 @@ pub(crate) fn unpack_tar<R: std::io::Read, P: AsRef<Path>>(
 
         return Err((
             archive_reader.into_inner(),
-            format_err!("failed to unpack: {}", e),
+            format_err!("{}: {:?}", e, e.kind()),
         ));
     }
 
